@@ -12,7 +12,7 @@
         {
             const int userId = 2;
             IUserService user = new UserServiceClient();
-            UserDto userDto = user.GetUser(userId);
+            IUserDto userDto = user.GetUser(userId);
             Assert.Equal<int>(userId, userDto.Id);
         }
     }

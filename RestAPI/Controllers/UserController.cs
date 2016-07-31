@@ -9,8 +9,13 @@
     public class UserController : ApiController, IUserService
     {
         [Route("{userId}")]
-        public UserDto GetUser(int userId)
+        public IUserDto GetUser(int userId)
         {
+            if (userId < 1)
+            {
+                return null;
+            }
+
             var user = new UserDto();
             user.Id = userId;
             user.Username = "username";

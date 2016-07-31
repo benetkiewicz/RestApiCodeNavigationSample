@@ -8,13 +8,14 @@
 
     public class UserServiceClient : IUserService
     {
-        public UserDto GetUser(int userId)
+        public IUserDto GetUser(int userId)
         {
             var client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:2460/");
             var response = client.GetAsync("api/v1/user/" + userId).Result;
             if (!response.IsSuccessStatusCode)
             {
+                response.ReasonPhrase.ToUpper();
                 return null;
             }
 

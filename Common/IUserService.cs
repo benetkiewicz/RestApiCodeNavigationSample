@@ -4,6 +4,6 @@
 
     public interface IUserService
     {
-        UserDto GetUser(int userId);
+        IUserDto GetUser(int userId);
     }
 }
