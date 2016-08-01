@@ -9,11 +9,11 @@
     public class UserController : ApiController, IUserService
     {
         [Route("{userId}")]
-        public IUserDto GetUser(int userId)
+        public UserDto GetUser(int userId)
         {
             if (userId < 1)
             {
-                return null;
+                throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
             }
 
             var user = new UserDto();

@@ -8,7 +8,7 @@
 
     public class UserServiceClient : IUserService
     {
-        public IUserDto GetUser(int userId)
+        public UserDto GetUser(int userId)
         {
             var client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:2460/");
