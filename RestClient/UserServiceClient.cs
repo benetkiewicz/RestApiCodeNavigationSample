@@ -1,6 +1,7 @@
 ﻿namespace RestClient
 {
     using System;
+    using System.Diagnostics;
     using System.Net.Http;
     using Common;
     using Common.Dto;
@@ -15,7 +16,7 @@
             var response = client.GetAsync("api/v1/user/" + userId).Result;
             if (!response.IsSuccessStatusCode)
             {
-                response.ReasonPhrase.ToUpper();
+                Trace.WriteLine(response.ReasonPhrase);
                 return null;
             }
 
